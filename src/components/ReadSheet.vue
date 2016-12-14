@@ -1,13 +1,13 @@
 <template>
   <div class="bgcolor">
   <ul>
-    <li><a class="active" @click="ReadSheet(2)">Home</a></li>
+    <li><a class="active" @click="ChangePage(1)">Home</a></li>
     <li><input type="search" class="search"></li>
-    <li><a @click="ReadSheet(2)">Upload</a></li>
+    <li><a @click="ChangePage(2)">Upload</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <div class="form-style-6">
-    <h1>Network Programing</h1>
+  <div class="form-style-6" v-for="name in subject">
+    <h1>{{name}}</h1>
     <form>
       <input type="submit" value="Read More >" class="canup"/>
     </form>
@@ -17,10 +17,10 @@
 
 <script>
 export default {
-  props: ['ReadSheet'],
-  name: 'ReadSheet',
+  props: ['ChangePage'],
   data () {
     return {
+      subject: ['Network Programming', 'App Mobile', 'Net Design', 'Net Lab II', 'Com Pro', 'Database', 'Net Lab II', 'Com Pro', 'Database'],
       gotoupload: false
     }
   },
@@ -95,17 +95,19 @@ a {
     max-width: 400px;
     height: 120px;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
     margin-right: 20px;
     margin-right: 20px;
     padding: 20px;
     background: #F8F8FF;
     box-shadow: 1px 1px 1px 0.5px #DCDCDC;
+    display: inline-block;
+    width: 350px;
 }
 .form-style-6 h1{
     background: #000000;
     padding: 20px 0;
-    font-size: 230%;
+    font-size: 200%;
     font-weight: 300;
     text-align: center;
     color: #fff;

@@ -2,14 +2,14 @@
   <div>
 <div id="app" v-show="App">
   <hello></hello>
-  <button type="button" name="GoToRead" class="button button" @click="Readsheet(1)">Go To Read</button>
-  <button type="button" name="UpLoad" class="button button" @click="Readsheet(2)">Upload</button>
+  <button type="button" name="GoToRead" class="button button" @click="ChangePage(1)">Go To Read</button>
+  <button type="button" name="UpLoad" class="button button" @click="ChangePage(2)">Upload</button>
 </div>
-<div v-show="gotoread" :readsheet="Readsheet">
-  <read-sheet></read-sheet>
+<div v-show="gotoread" :change-page="ChangePage">
+  <read-sheet :change-page="ChangePage"></read-sheet>
 </div>
-<div v-show="uploadsheet">
-  <upload-sheet></upload-sheet>
+<div v-show="uploadsheet" :change-page="ChangePage">
+  <upload-sheet :change-page="ChangePage"></upload-sheet>
 </div>
 </div>
 </template>
@@ -33,12 +33,13 @@ export default {
     UploadSheet
   },
   methods: {
-    Readsheet (page) {
+    ChangePage (page) {
+      console.log(page)
       if (page === 1) {
         this.gotoread = true
         this.App = false
         this.uploadsheet = false
-      } else if (page === 2) {
+      } if (page === 2) {
         this.uploadsheet = true
         this.gotoread = false
         this.App = false
