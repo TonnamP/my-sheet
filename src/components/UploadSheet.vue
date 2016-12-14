@@ -11,7 +11,8 @@
     <form>
       <input type="text" name="subject" placeholder="Subject" class="subject"/>
       <input type="text" name="title" placeholder="Title" class="subject"/>
-      <input type="text" name="file" placeholder="Choose File" class="choose"/><input type="submit" value="Choose File" class="choosefile"/>
+      <input type="file" name="choosfile" placeholder="Choose File" class="choose" value="Choose File" accept="application/pdf"/>
+      <!--<input type="submit" value="Choose File" class="choosefile"/>-->
       <input type="submit" value="Upload" class="canup"/><input type="submit" value="Cancle" class="canup"/>
     </form>
   </div>
@@ -20,7 +21,13 @@
 
 <script>
 export default {
-  name: 'upload'
+  name: 'upload',
+  data () {
+    return {
+    }
+  },
+  methods: {
+  }
 }
 </script>
 
@@ -137,7 +144,7 @@ a {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
-    width: 70%;
+    width: 100%;
     background: #fff;
     margin-bottom: 4%;
     border: 1px solid #ccc;
@@ -151,7 +158,6 @@ a {
     padding: 3%;
     border: 1px solid #000000;
 }
-
 .choosefile{
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -193,4 +199,5 @@ a {
   width: 100vu;
   height: 100vh;
 }
+
 </style>
